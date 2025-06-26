@@ -31,25 +31,44 @@ Each feature "slice" contains all components required for that feature:
 ```plaintext
 BlazorBlog.Server/
 ├── Slices/
+
 │   ├── Blogs/
+
 │   │   ├── Commands/           # Command handlers for blog operations
+
 │   │   │   ├── AddBlogHandler.cs
+
 │   │   │   ├── UpdateBlogHandler.cs
+
 │   │   │   └── DeleteBlogHandler.cs
+
 │   │   ├── Queries/            # Query handlers for blog data retrieval
+
 │   │   │   ├── GetAllBlogsHandler.cs
+
 │   │   │   └── GetBlogByIdHandler.cs
+
 │   │   ├── Entities/           # Domain models
+
 │   │   │   └── Blog.cs
+
 │   │   ├── Configurations/     # Entity configurations
+
 │   │   │   └── BlogConfiguration.cs
+
 │   │   ├── BlogService.cs      # Service implementing business logic
+
 │   │   └── IBlogService.cs     # Service interface
+
 │   │
 │   └── BlogPosts/
+
 │       ├── Commands/
+
 │       ├── Queries/
+
 │       ├── Entities/
+
 │       └── etc...
 ```plaintext
 ### Key Technical Components
