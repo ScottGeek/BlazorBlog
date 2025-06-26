@@ -181,6 +181,7 @@ The application manages two main entities:
 1. Clone the repository
 2. Update the connection string in `appsettings.json` if needed
 3. Run Entity Framework migrations:dotnet ef database update --project BlazorBlog.Server4. Run the application:dotnet run --project BlazorBlog.Server
+
 ## Technology Stack
 
 - **Frontend**: Blazor WebAssembly (.NET 9)
