@@ -1,0 +1,69 @@
+﻿@attribute [Route(Routes.Pages.Blogs.Index)]
+<PageTitle>Blogs</PageTitle>
+<div class="d-flex align-items-center justify-content-between">
+    <h3>Blogs</h3>
+    <a class="btn btn-outline-primary" href="@Routes.Pages.Blogs.Add">Add Blog</a>
+</div>
+
+@if(_blogs is null)
+{
+    <div>Loading..</div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var blog in _blogs)
+            {
+                <tr>
+                  <td>@blog.Title</td>
+                  <td>@blog.Description</td>
+                  <td>
+                      <button class="btn btn-outline-primary" @onclick="@(()=> GotToPostsPage(blog))">Posts</button>
+                        <button class="btn btn-outline-primary" @onclick="@(() => GotToEditPage(blog))">Edit</button>
+                  </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+
+    [Inject]
+    public HttpClient HttpClient { get; set; } = null!;
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; } = null!;
+
+    private List<BlogDto>? _blogs;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _blogs = await HttpClient.GetFromJsonAsync<List<BlogDto>>(Routes.Api.Blogs.GetAll);
+    }
+
+
+    private void GotToEditPage(BlogDto blog)
+    {
+
+        var route = Routes.Pages.Blogs.Edit.Format(blog.Id);
+        NavigationManager.NavigateTo(route);
+     }
+
+    private void GotToPostsPage(BlogDto blog)
+    {
+
+        var route = Routes.Pages.BlogPosts.Index.Format(blog.Id);
+        NavigationManager.NavigateTo(route);
+    }
+
+}

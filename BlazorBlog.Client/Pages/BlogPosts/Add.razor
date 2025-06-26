@@ -1,0 +1,10 @@
+﻿@attribute [Route(Routes.Pages.BlogPosts.Add)]
+<PageTitle>Add Post</PageTitle>
+<h3>Add Post</h3>
+<AddOrUpdateBlogPostForm Command="new AddOrUpdateBlogPostCommand()" BlogId="@BlogId" />
+
+@code {
+
+    [Parameter]
+    public Guid BlogId { get; set; }
+}

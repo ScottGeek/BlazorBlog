@@ -1,0 +1,42 @@
+﻿@using BlazorBlog.Client.Extensions
+@attribute [Route(Routes.Pages.Blogs.Edit)]
+<PageTitle>Edit BLog</PageTitle>
+<h3>Edit Blog</h3>
+
+@if(_command == null)
+{
+    <div>Loading...</div>
+}
+else
+{
+    <p>Editing blog: @_command.Title</p>
+    <AddOrUpdateBlogForm Command="@_command"/>
+}
+
+
+
+@code{
+
+    [Parameter]
+    public Guid Id { get; set; }
+
+    [Inject] HttpClient HttpClient { get; set; } = null!;
+
+    private AddOrUpdateBlogCommand? _command;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        var route = Routes.Api.Blogs.GetById.Format(Id);
+        // Logic to fetch blog details using Id
+        var blog = await HttpClient.GetFromJsonAsync<BlogDto>(route);
+
+        if (blog == null)
+        {
+            return;
+        }
+
+        _command = blog.MapToCommand();
+
+    }
+}
