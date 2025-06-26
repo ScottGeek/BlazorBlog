@@ -46,7 +46,7 @@ BlazorBlog.Server/
 │   │   │   └── Blog.cs
 │   │   ├── Configurations/     # Entity configurations
 │   │   │   └── BlogConfiguration.cs
-|	|	|
+│   │   │
 │   │   │ # Services layer to contect to the database
 │   │   ├── BlogService.cs      # Service implementing business logic
 │   │   └── IBlogService.cs     # Service interface
