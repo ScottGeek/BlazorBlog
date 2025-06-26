@@ -28,6 +28,7 @@ The solution consists of three main projects:
 ### Vertical Slice Architecture Implementation
 
 Each feature "slice" contains all components required for that feature:
+```plaintext
 BlazorBlog.Server/
 ├── Slices/
 │   ├── Blogs/
@@ -50,6 +51,7 @@ BlazorBlog.Server/
 │       ├── Queries/
 │       ├── Entities/
 │       └── etc...
+```plaintext
 ### Key Technical Components
 
 1. **CQRS Pattern**
