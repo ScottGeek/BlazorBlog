@@ -53,6 +53,8 @@ BlazorBlog.Server/
 │       ├── Configurations/     # Entity configurations
 │       ├── BlogPostService.cs  # Service implementing blog post business logic
 │       └── IBlogPostService.cs  # Service interface for blog posts
+
+....
 ```
 ### Key Technical Components
 
