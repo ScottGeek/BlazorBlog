@@ -74,7 +74,7 @@ BlazorBlog.Client/  # Client application project
 ├── Pages/			# Blazor components organized by feature
 │   ├── Blogs/      # Page and components for blogs
 │   ├── BlogPosts/  # Page and components for blog posts
-│ 	└── Home.razor  # Home page component
+│   └── Home.razor  # Home page component
 │ 
 ├── App.razor       # Main application component
 ├── wwwroot/        # Static files (CSS, JS, images)
