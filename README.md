@@ -29,8 +29,11 @@ The solution consists of three main projects:
 
 Each feature "slice" contains all components required for that feature:
 ``` Structure View
+
+Blazor Blog Solution            # Solution Root VSA type application written in Blazor (C#) and .NET 9
+|
 BlazorBlog.Server/
-├── Slices/
+├── Slices/                     # Feature slices for Blogs and BlogPosts
 │   ├── Blogs/
 │   │   ├── Commands/           # Command handlers for blog operations
 │   │   │   ├── AddBlogHandler.cs
@@ -43,16 +46,62 @@ BlazorBlog.Server/
 │   │   │   └── Blog.cs
 │   │   ├── Configurations/     # Entity configurations
 │   │   │   └── BlogConfiguration.cs
+|	|	|
+│   │   │ # Services layer to contect to the database
 │   │   ├── BlogService.cs      # Service implementing business logic
 │   │   └── IBlogService.cs     # Service interface
 │   │
-│   └── BlogPosts/
+│   └── BlogPosts/  # This slice structure is similar to Blogs slice above
 │       ├── Commands/
 │       ├── Queries/
 │       ├── Entities/
 │       ├── Configurations/     # Entity configurations
 │       ├── BlogPostService.cs  # Service implementing blog post business logic
 │       └── IBlogPostService.cs  # Service interface for blog posts
+│
+├── Persistence/    # Data access layer
+|   ├── Migrations/      # EF Core migrations
+│   └── BlogDataContext  # Entity Framework Core DbContext
+|
+├── Extensions/				 # Extension methods for data mapping and configuration
+│   └── MapperExtensions.cs  # Extension methods for IServiceCollection
+|
+├── appsettings.json  # Client configuration settings
+├── Program.cs        # Application entry point for the server (API)
+│ 
+|
+BlazorBlog.Client/  # Client application project
+├── Pages/			# Blazor components organized by feature
+│   ├── Blogs/      # Page and components for blogs
+│   ├── BlogPosts/  # Page and components for blog posts
+|	└── Home.razor  # Home page component
+|
+├── App.razor       # Main application component
+├── wwwroot/        # Static files (CSS, JS, images)
+├── Layout/			# Layout components for Blazor pages
+├── Extensions/     # Shared extensions for common functionality
+├── _Imports.razor  # Global imports for Blazor components
+├── Program.cs      # Application entry point for the client
+|
+|
+BlazorBlog.Shared/  # Shared project for DTOs and validation and constants
+├── Blogs/          #
+│   ├── Commands/   # Command class DTOs for blog/blogpost operations
+│   │   ├── AddOrUpdateBlogCommand.cs 
+│   │   └── AddOrUpdateBlogPostCommand
+│   │
+│   ├── Validators/ # FluentValidation validators for commands
+│   │   ├── AddOrUpdateBlogCommandValidator.cs      # Validator for AddOrUpdateBlogCommand
+│   │   └── AddOrUpdateBlogPostCommandValidator.cs  # Validator for AddOrUpdateBlogPostCommand
+|	|
+|	├── BlogDto.cs                                  # Data Transfer Object for Blog
+│   └── BlogPostDto.cs                              # Data Transfer Object for BlogPost
+|
+├── Constants/         # Replace magic strings with constants
+|   ├── MaxLengths.cs  # Field length constants for validation and database
+│   └── Routes.cs      # Page Routes constants for navigation
+|
+└── End of Code Structure
 
 ....
 ```
