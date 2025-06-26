@@ -94,16 +94,15 @@ BlazorBlog.Shared/  # Shared project for DTOs and validation and constants
 │   │   ├── AddOrUpdateBlogCommandValidator.cs      # Validator for AddOrUpdateBlogCommand
 │   │   └── AddOrUpdateBlogPostCommandValidator.cs  # Validator for AddOrUpdateBlogPostCommand
 │   │
-│	├── BlogDto.cs                                  # Data Transfer Object for Blog
+│   ├── BlogDto.cs                                  # Data Transfer Object for Blog
 │   └── BlogPostDto.cs                              # Data Transfer Object for BlogPost
 │
 ├── Constants/         # Replace magic strings with constants
-│	├── MaxLengths.cs  # Field length constants for validation and database
+│   ├── MaxLengths.cs  # Field length constants for validation and database
 │   └── Routes.cs      # Page Routes constants for navigation
 |
 └── End of Code Structure
 
-....
 ```
 ### Key Technical Components
 
