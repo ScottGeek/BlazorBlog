@@ -68,22 +68,22 @@ BlazorBlog.Server/
 |
 ├── appsettings.json  # Client configuration settings
 ├── Program.cs        # Application entry point for the server (API)
-│ 
-|
+│
+│
 BlazorBlog.Client/  # Client application project
 ├── Pages/			# Blazor components organized by feature
 │   ├── Blogs/      # Page and components for blogs
 │   ├── BlogPosts/  # Page and components for blog posts
-|	└── Home.razor  # Home page component
-|
+│ 	└── Home.razor  # Home page component
+│ 
 ├── App.razor       # Main application component
 ├── wwwroot/        # Static files (CSS, JS, images)
 ├── Layout/			# Layout components for Blazor pages
 ├── Extensions/     # Shared extensions for common functionality
 ├── _Imports.razor  # Global imports for Blazor components
 ├── Program.cs      # Application entry point for the client
-|
-|
+│
+│
 BlazorBlog.Shared/  # Shared project for DTOs and validation and constants
 ├── Blogs/          #
 │   ├── Commands/   # Command class DTOs for blog/blogpost operations
@@ -93,12 +93,12 @@ BlazorBlog.Shared/  # Shared project for DTOs and validation and constants
 │   ├── Validators/ # FluentValidation validators for commands
 │   │   ├── AddOrUpdateBlogCommandValidator.cs      # Validator for AddOrUpdateBlogCommand
 │   │   └── AddOrUpdateBlogPostCommandValidator.cs  # Validator for AddOrUpdateBlogPostCommand
-|	|
-|	├── BlogDto.cs                                  # Data Transfer Object for Blog
+│   │
+│	├── BlogDto.cs                                  # Data Transfer Object for Blog
 │   └── BlogPostDto.cs                              # Data Transfer Object for BlogPost
-|
+│
 ├── Constants/         # Replace magic strings with constants
-|   ├── MaxLengths.cs  # Field length constants for validation and database
+│	├── MaxLengths.cs  # Field length constants for validation and database
 │   └── Routes.cs      # Page Routes constants for navigation
 |
 └── End of Code Structure
